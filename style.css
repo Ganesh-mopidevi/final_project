@@ -1,0 +1,274 @@
+/* ========================
+   Global Reset & Variables
+======================== */
+:root {
+  --primary: #e0f7fa; /* Soft Cyan */
+  --secondary: #004d40; /* Deep Teal */
+  --gradient: linear-gradient(to right, #00bcd4, #f788f1); /* Cyan to Teal */
+  --dark: #263238; /* Dark Blue Gray */
+  --light: #f0f4f8; /* Light Blue Gray */
+  --white: #ffffff;
+  --radius: 15px;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --transition: all 0.35s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ========================
+   Header
+======================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--gradient);
+  padding: 1.2rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Nav Menu */
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+nav li + li {
+  margin-left: 25px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+/* Mobile Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.menu-toggle.active {
+  transform: rotate(90deg);
+}
+
+/* ========================
+   Hero Section
+======================== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url("https://picsum.photos/1600/600?grayscale") center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: 7rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1.2rem;
+  animation: fadeInUp 1s ease both;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 12px 32px;
+  background: var(--gradient);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(to right, #00695c, #f09de5);
+}
+
+/* ========================
+   Section Layouts
+======================== */
+.features,
+.services-list,
+.content {
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+}
+
+/* Card Styles */
+.feature,
+.service-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.feature:hover,
+.service-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================
+   Page Header
+======================== */
+.page-header {
+  background: linear-gradient(to right, #004d40, #ec81de);
+  color: var(--white);
+  padding: 2.8rem;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* ========================
+   Contact Form
+======================== */
+.contact-form {
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  max-width: 800px;
+  margin: 2.5rem auto;
+  box-shadow: var(--shadow);
+}
+
+.contact-form form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #f165f1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 8px rgba(125, 235, 224, 0.3);
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+  text-align: center;
+  padding: 1.6rem;
+  background: linear-gradient(to right, #006064, #f77bf0);
+  color: var(--white);
+  font-size: 0.95rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow);
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+   Responsive Menu
+======================== */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--gradient);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 220px;
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: slideDown 0.4s ease;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
